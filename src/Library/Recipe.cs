@@ -22,6 +22,13 @@ namespace Full_GRASP_And_SOLID
 
         public void RemoveStep(Step step)
         {
+            //Precondición
+            if(!steps.Contains(step))
+            {
+                throw new StepNotFoundException("Step not found in recipe");
+            }
+
+            //Operación
             this.steps.Remove(step);
         }
 
