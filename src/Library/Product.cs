@@ -10,6 +10,10 @@ namespace Full_GRASP_And_SOLID
     {
         public Product(string description, double unitCost)
         {
+            if(String.IsNullOrWhiteSpace(description))
+            {
+                throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
+            }
             this.Description = description;
             this.UnitCost = unitCost;
         }
