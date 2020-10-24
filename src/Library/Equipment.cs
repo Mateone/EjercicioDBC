@@ -3,6 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //-------------------------------------------------------------------------------
+using System;
 
 namespace Full_GRASP_And_SOLID
 {
@@ -10,6 +11,10 @@ namespace Full_GRASP_And_SOLID
     {
         public Equipment(string description, double hourlyCost)
         {
+            if(String.IsNullOrWhiteSpace(description))
+            {
+                throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
+            }
             this.Description = description;
             this.HourlyCost = hourlyCost;
         }
