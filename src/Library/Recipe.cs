@@ -17,11 +17,19 @@ namespace Full_GRASP_And_SOLID
 
         public void AddStep(Step step)
         {
+            if (step == null)
+            {
+                throw new NullReferenceException("El objeto ingresado es null");
+            }
             this.steps.Add(step);
         }
 
         public void RemoveStep(Step step)
         {
+            if (step == null)
+            {
+                throw new NullReferenceException("El objeto ingresado es null");
+            }
             this.steps.Remove(step);
         }
 

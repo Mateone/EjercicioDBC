@@ -3,6 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //-------------------------------------------------------------------------------
+using System;
 
 namespace Full_GRASP_And_SOLID
 {
@@ -11,8 +12,16 @@ namespace Full_GRASP_And_SOLID
         public Step(Product input, double quantity, Equipment equipment, int time)
         {
             this.Quantity = quantity;
+            if (input == null)
+            {
+                throw new NullReferenceException("El objeto ingresado es null");
+            }
             this.Input = input;
             this.Time = time;
+            if (input == null)
+            {
+                throw new NullReferenceException("El objeto ingresado es null");
+            }
             this.Equipment = equipment;
         }
 
