@@ -13,20 +13,39 @@ namespace Full_GRASP_And_SOLID
             this.Quantity = quantity;
             this.Input = input;
             this.Equipment = equipment;
-
-            if (time < 0 )
-            {
-                throw new TimeException("El tiempo introducido es menor a cero!");
-            }
-
             this.Time = time;
         }
 
         public Product Input { get; set; }
 
-        public double Quantity { get; set; }
-
-        public int Time { get; set; }
+        public double Quantity
+        {
+            get
+            {
+                return this.Time;
+            }
+            set
+            {
+                if (value <= 0 )
+                {
+                    throw new NegativeOrZeroException("La cantidad introducida es menor o igual a cero!");
+                }
+            }
+        }
+        public int Time 
+        {
+            get
+            {
+                return this.Time;
+            }
+            set
+            {
+                if (value <= 0 )
+                {
+                    throw new NegativeOrZeroException("El tiempo introducido es menor o igual a cero!");
+                }
+            }
+        }
 
         public Equipment Equipment { get; set; }
     }
