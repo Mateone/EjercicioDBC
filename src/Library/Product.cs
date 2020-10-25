@@ -28,7 +28,7 @@ namespace Full_GRASP_And_SOLID
                 {
                     throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
                 }
-                this.Description = value;
+                this.description = value;
             }
         }
         public double unitCost;
