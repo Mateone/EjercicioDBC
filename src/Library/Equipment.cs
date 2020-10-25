@@ -11,16 +11,34 @@ namespace Full_GRASP_And_SOLID
     {
         public Equipment(string description, double hourlyCost)
         {
-            if(String.IsNullOrWhiteSpace(description))
-            {
-                throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
-            }
             this.Description = description;
             this.HourlyCost = hourlyCost;
         }
 
-        public string Description { get; set; }
+        public string Description
+        {
+            get;
+            set
+            {
+                if(String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
+                }
+                this.Description = value;
+            }
+        }
 
-        public double HourlyCost { get; set; }
+        public double HourlyCost
+        {
+            get;
+            set
+            {
+                if (value < 0)
+                {
+                    throw new NegativeValueException("El valor introducido es menor a cero");
+                }
+                this.HourlyCost = value;
+            }
+        }
     }
 }
