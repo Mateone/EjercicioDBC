@@ -5,22 +5,48 @@
 //---------------------------------------------------------------------------------------
 using System;
 
+using System;
+
 namespace Full_GRASP_And_SOLID
 {
     public class Product
     {
         public Product(string description, double unitCost)
         {
-            if(String.IsNullOrWhiteSpace(description))
-            {
-                throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
-            }
             this.Description = description;
             this.UnitCost = unitCost;
         }
-
-        public string Description { get; set; }
-
-        public double UnitCost { get; set; }
+         private string description;
+        public string Description 
+        {
+            get
+            {
+                return this.description;
+            } 
+            set
+            {
+                if(String.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
+                }
+                this.description = value;
+            }
+        }
+        public double unitCost;
+        public double UnitCost
+        {
+            get
+            {
+                return this.unitCost;
+            }
+            private set
+            {
+                if (value < 0)
+                {
+                    throw new NegativeValueException("El valor introducido es menor a cero");
+                }
+                this.unitCost = value;
+            }
+        }
     }
 }
