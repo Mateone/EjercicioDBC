@@ -83,9 +83,10 @@ namespace Full_GRASP_And_SOLID
                 //Precondición
                 if (value == null)
                 {
-                throw new NullValueException("El value ingresado es null");
+                    throw new NullValueException("El value ingresado es null");
                 }
                 this.Equipment = value;
             }
+        }
     }
 }
