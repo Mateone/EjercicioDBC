@@ -17,11 +17,21 @@ namespace Full_GRASP_And_SOLID
 
         public void AddStep(Step step)
         {
+            //Precondición
+            if (step == null)
+            {
+                throw new NullValueException("El value ingresado es null");
+            }
             this.steps.Add(step);
         }
 
         public void RemoveStep(Step step)
         {
+            //Precondición
+            if (step == null)
+            {
+                throw new NullValueException("El value ingresado es null");
+            }
             //Precondición
             if(!steps.Contains(step))
             {

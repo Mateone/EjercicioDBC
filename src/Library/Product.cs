@@ -3,6 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------------
+using System;
 
 using System;
 
@@ -15,13 +16,13 @@ namespace Full_GRASP_And_SOLID
             this.Description = description;
             this.UnitCost = unitCost;
         }
-         private string description;
-        public string Description 
+        private string description;
+        public string Description
         {
             get
             {
                 return this.description;
-            } 
+            }
             set
             {
                 if(String.IsNullOrWhiteSpace(value))

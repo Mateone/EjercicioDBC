@@ -3,6 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //-------------------------------------------------------------------------------
+using System;
 
 namespace Full_GRASP_And_SOLID
 {
@@ -12,11 +13,27 @@ namespace Full_GRASP_And_SOLID
         {
             this.Quantity = quantity;
             this.Input = input;
+            this.Time = time;
             this.Equipment = equipment;
             this.Time = time;
         }
 
-        public Product Input { get; set; }
+        public Product Input
+        {
+            get
+            {
+                return this.Input;
+            }
+            set
+            {
+                //Precondición
+                if (value == null)
+                {
+                throw new NullValueException("El value ingresado es null");
+                }
+                this.Input = value;
+            }
+        }
 
         private double quantity;
         public double Quantity
@@ -27,6 +44,7 @@ namespace Full_GRASP_And_SOLID
             }
             set
             {
+                //Precondición
                 if (value <= 0 )
                 {
                     throw new NegativeOrZeroException("La cantidad introducida es menor o igual a cero!");
@@ -45,6 +63,7 @@ namespace Full_GRASP_And_SOLID
             }
             set
             {
+                //Precondición
                 if (value <= 0 )
                 {
                     throw new NegativeOrZeroException("El tiempo introducido es menor o igual a cero!");
@@ -53,6 +72,20 @@ namespace Full_GRASP_And_SOLID
             }
         }
 
-        public Equipment Equipment { get; set; }
+        public Equipment Equipment
+        {
+            get
+            {
+                return this.Equipment;
+            }
+            set
+            {
+                //Precondición
+                if (value == null)
+                {
+                throw new NullValueException("El value ingresado es null");
+                }
+                this.Equipment = value;
+            }
     }
 }
