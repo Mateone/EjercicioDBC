@@ -17,9 +17,10 @@ namespace Full_GRASP_And_SOLID
 
         public void AddStep(Step step)
         {
+            //Precondición
             if (step == null)
             {
-                throw new NullReferenceException("El objeto ingresado es null");
+                throw new NullValueException("El value ingresado es null");
             }
             this.steps.Add(step);
         }
@@ -29,7 +30,7 @@ namespace Full_GRASP_And_SOLID
             //Precondición
             if (step == null)
             {
-                throw new NullReferenceException("El objeto ingresado es null");
+                throw new NullValueException("El value ingresado es null");
             }
             //Precondición
             if(!steps.Contains(step))

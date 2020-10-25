@@ -16,18 +16,22 @@ namespace Full_GRASP_And_SOLID
             this.Description = description;
             this.UnitCost = unitCost;
         }
-         private string description;
-        public string Description 
+        private string description;
+        public string Description
         {
             get
             {
                 return this.description;
-            } 
+            }
             set
             {
                 if(String.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
+                }
+                if (value == null)
+                {
+                throw new NullValueException("El value ingresado es null");
                 }
                 this.description = value;
             }
