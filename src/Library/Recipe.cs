@@ -30,6 +30,8 @@ namespace Full_GRASP_And_SOLID
 
             //Operación
             this.steps.Remove(step);
+
+            //Poscondicion: El largo de la lista de steps es menor a lo que era antes.
         }
 
         public void PrintRecipe()

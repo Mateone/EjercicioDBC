@@ -24,11 +24,15 @@ namespace Full_GRASP_And_SOLID
             }
             set
             {
+                //Precondición
                 if(String.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
                 }
+                //Operación
                 this.description = value;
+
+                //Poscondición: Description toma el valor que se intenta asignarle
             }
         }
 
@@ -41,11 +45,15 @@ namespace Full_GRASP_And_SOLID
             }
             set
             {
+                //Precondición
                 if (value < 0)
                 {
                     throw new NegativeValueException("El valor introducido es menor a cero");
                 }
+                //Operación
                 this.hourlyCost = value;
+
+                //Poscondición: HourlyCost toma el valor que se intenta asignarle
             }
         }
     }
