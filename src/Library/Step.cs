@@ -18,11 +18,12 @@ namespace Full_GRASP_And_SOLID
             this.Time = time;
         }
 
+        private Product input;
         public Product Input
         {
             get
             {
-                return this.Input;
+                return this.input;
             }
             set
             {
@@ -31,7 +32,7 @@ namespace Full_GRASP_And_SOLID
                 {
                 throw new NullValueException("El value ingresado es null");
                 }
-                this.Input = value;
+                this.input = value;
             }
         }
 
@@ -72,11 +73,12 @@ namespace Full_GRASP_And_SOLID
             }
         }
 
+        private Equipment equipment;
         public Equipment Equipment
         {
             get
             {
-                return this.Equipment;
+                return this.equipment;
             }
             set
             {
@@ -85,7 +87,7 @@ namespace Full_GRASP_And_SOLID
                 {
                     throw new NullValueException("El value ingresado es null");
                 }
-                this.Equipment = value;
+                this.equipment = value;
             }
         }
     }
