@@ -18,11 +18,12 @@ namespace Full_GRASP_And_SOLID
 
         public Product Input { get; set; }
 
+        private double quantity;
         public double Quantity
         {
             get
             {
-                return this.Time;
+                return this.quantity;
             }
             set
             {
@@ -30,13 +31,17 @@ namespace Full_GRASP_And_SOLID
                 {
                     throw new NegativeOrZeroException("La cantidad introducida es menor o igual a cero!");
                 }
+                this.quantity = value;
             }
         }
+
+        private int time;
+
         public int Time 
         {
             get
             {
-                return this.Time;
+                return this.time;
             }
             set
             {
@@ -44,6 +49,7 @@ namespace Full_GRASP_And_SOLID
                 {
                     throw new NegativeOrZeroException("El tiempo introducido es menor o igual a cero!");
                 }
+                this.time = value;
             }
         }
 
