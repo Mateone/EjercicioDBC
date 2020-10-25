@@ -15,29 +15,37 @@ namespace Full_GRASP_And_SOLID
             this.HourlyCost = hourlyCost;
         }
 
+        private string description;
         public string Description
         {
-            get;
+            get
+            {
+                return this.description;
+            }
             set
             {
                 if(String.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
                 }
-                this.Description = value;
+                this.description = value;
             }
         }
 
+        private double hourlyCost;
         public double HourlyCost
         {
-            get;
+            get
+            {
+                return this.hourlyCost;
+            }
             set
             {
                 if (value < 0)
                 {
                     throw new NegativeValueException("El valor introducido es menor a cero");
                 }
-                this.HourlyCost = value;
+                this.hourlyCost = value;
             }
         }
     }
