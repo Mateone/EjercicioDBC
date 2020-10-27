@@ -17,16 +17,24 @@ namespace Full_GRASP_And_SOLID
 
         public void AddStep(Step step)
         {
+            int oldcount = steps.Count;
             //Precondición
             if (step == null)
             {
                 throw new NullValueException("El value ingresado es null");
             }
             this.steps.Add(step);
+            int newcount = steps.Count;
+            //Poscondición
+            if (newcount != oldcount + 1)
+            {
+                throw new WrongListLengthException("No step added");
+            }
         }
 
         public void RemoveStep(Step step)
         {
+            int oldcount = steps.Count;
             //Precondición
             if (step == null)
             {
@@ -40,8 +48,12 @@ namespace Full_GRASP_And_SOLID
 
             //Operación
             this.steps.Remove(step);
-
-            //Poscondicion: El largo de la lista de steps es menor a lo que era antes.
+            int newcount = steps.Count;
+            //Poscondición
+            if (newcount != oldcount - 1)
+            {
+                throw new WrongListLengthException("No step removed");
+            }
         }
 
         public void PrintRecipe()
