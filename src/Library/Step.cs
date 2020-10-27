@@ -3,6 +3,7 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //-------------------------------------------------------------------------------
+using System;
 
 namespace Full_GRASP_And_SOLID
 {
@@ -10,10 +11,19 @@ namespace Full_GRASP_And_SOLID
     {
         public Step(Product input, double quantity, Equipment equipment, int time)
         {
-            this.Quantity = quantity;
-            this.Input = input;
             this.Equipment = equipment;
-            this.Time = time;
+            this.Input = input;
+
+            try
+            {
+                this.Quantity = quantity;
+                this.Time = time;
+            }
+            
+            catch (NegativeOrZeroException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         }
 
         public Product Input { get; set; }
