@@ -11,8 +11,19 @@ namespace Full_GRASP_And_SOLID
     {
         public Product(string description, double unitCost)
         {
-            this.Description = description;
-            this.UnitCost = unitCost;
+            try
+            {    
+                this.Description = description;
+                this.UnitCost = unitCost;
+            }
+            catch (ArgumentNullOrEmptyException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            catch (NegativeValueException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         }
         private string description;
         public string Description
