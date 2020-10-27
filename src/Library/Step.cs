@@ -11,6 +11,9 @@ namespace Full_GRASP_And_SOLID
     {
         public Step(Product input, double quantity, Equipment equipment, int time)
         {
+            this.Quantity = quantity;
+            this.Input = input;
+            this.Time = time;
             this.Equipment = equipment;
             this.Input = input;
 
@@ -26,7 +29,23 @@ namespace Full_GRASP_And_SOLID
             }
         }
 
-        public Product Input { get; set; }
+        private Product input;
+        public Product Input
+        {
+            get
+            {
+                return this.input;
+            }
+            set
+            {
+                //Precondición
+                if (value == null)
+                {
+                throw new NullValueException("El value ingresado es null");
+                }
+                this.input = value;
+            }
+        }
 
         private double quantity;
         public double Quantity
@@ -37,6 +56,7 @@ namespace Full_GRASP_And_SOLID
             }
             set
             {
+                //Precondición
                 if (value <= 0 )
                 {
                     throw new NegativeOrZeroException("La cantidad introducida es menor o igual a cero!");
@@ -60,6 +80,7 @@ namespace Full_GRASP_And_SOLID
             }
             set
             {
+                //Precondición
                 if (value <= 0 )
                 {
                     throw new NegativeOrZeroException("El tiempo introducido es menor o igual a cero!");
@@ -73,6 +94,22 @@ namespace Full_GRASP_And_SOLID
             }
         }
 
-        public Equipment Equipment { get; set; }
+        private Equipment equipment;
+        public Equipment Equipment
+        {
+            get
+            {
+                return this.equipment;
+            }
+            set
+            {
+                //Precondición
+                if (value == null)
+                {
+                    throw new NullValueException("El value ingresado es null");
+                }
+                this.equipment = value;
+            }
+        }
     }
 }

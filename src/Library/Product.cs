@@ -3,7 +3,6 @@
 // Copyright (c) Programación II. Derechos reservados.
 // </copyright>
 //---------------------------------------------------------------------------------------
-
 using System;
 
 namespace Full_GRASP_And_SOLID
@@ -12,16 +11,27 @@ namespace Full_GRASP_And_SOLID
     {
         public Product(string description, double unitCost)
         {
-            this.Description = description;
-            this.UnitCost = unitCost;
+            try
+            {    
+                this.Description = description;
+                this.UnitCost = unitCost;
+            }
+            catch (ArgumentNullOrEmptyException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            catch (NegativeValueException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         }
         private string description;
-        public string Description 
+        public string Description
         {
             get
             {
                 return this.description;
-            } 
+            }
             set
             {
                 if(String.IsNullOrWhiteSpace(value))

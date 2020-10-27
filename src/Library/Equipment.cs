@@ -11,11 +11,23 @@ namespace Full_GRASP_And_SOLID
     {
         public Equipment(string description, double hourlyCost)
         {
-            this.Description = description;
-            this.HourlyCost = hourlyCost;
+            try
+            {
+                this.Description = description;
+                this.HourlyCost = hourlyCost;
+            }
+            catch (ArgumentNullOrEmptyException exce)
+            {
+                Console.WriteLine(exce.Message);
+            }
+            catch (NegativeValueException exce)
+            {
+                Console.WriteLine(exce.Message);
+            }
         }
 
         private string description;
+        
         public string Description
         {
             get
