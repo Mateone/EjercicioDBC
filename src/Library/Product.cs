@@ -24,6 +24,10 @@ namespace Full_GRASP_And_SOLID
             {
                 Console.WriteLine(exception.Message);
             }
+            catch (NotEqualException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         }
         private string description;
         public string Description
@@ -39,6 +43,11 @@ namespace Full_GRASP_And_SOLID
                     throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
                 }
                 this.description = value;
+
+                if (this.description != value)
+                {
+                    throw new NotEqualException("La operación de asignación de la descripción del producto ha fallado");
+                }
             }
         }
         public double unitCost;
@@ -55,6 +64,11 @@ namespace Full_GRASP_And_SOLID
                     throw new NegativeValueException("El valor introducido es menor a cero");
                 }
                 this.unitCost = value;
+
+                if (this.unitCost != value)
+                {
+                    throw new NotEqualException("La operación de asignación del unitCost del producto ha fallado");
+                }
             }
         }
     }

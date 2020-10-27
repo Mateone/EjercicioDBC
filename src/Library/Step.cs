@@ -15,7 +15,29 @@ namespace Full_GRASP_And_SOLID
             this.Input = input;
             this.Time = time;
             this.Equipment = equipment;
-            this.Time = time;
+
+            try
+            {
+                this.Quantity = quantity;
+                this.Time = time;
+                this.Input = input;
+                this.Equipment = equipment;
+
+            }
+
+            catch (NegativeOrZeroException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+
+            catch (NotEqualException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            catch (NullValueException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         }
 
         private Product input;
@@ -33,6 +55,11 @@ namespace Full_GRASP_And_SOLID
                 throw new NullValueException("El value ingresado es null");
                 }
                 this.input = value;
+
+                if (this.input != value)
+                {
+                    throw new NotEqualException("La operación de asignación del producto ha fallado");
+                }
             }
         }
 
@@ -51,6 +78,11 @@ namespace Full_GRASP_And_SOLID
                     throw new NegativeOrZeroException("La cantidad introducida es menor o igual a cero!");
                 }
                 this.quantity = value;
+            
+                if (this.quantity != value)
+                {
+                    throw new NotEqualException("La operación de asignación de la cantidad ha fallado");
+                }
             }
         }
 
@@ -70,6 +102,11 @@ namespace Full_GRASP_And_SOLID
                     throw new NegativeOrZeroException("El tiempo introducido es menor o igual a cero!");
                 }
                 this.time = value;
+
+                if (this.time != value)
+                {
+                    throw new NotEqualException("La operación de asignación del tiempo del step ha fallado");
+                }
             }
         }
 
@@ -88,6 +125,13 @@ namespace Full_GRASP_And_SOLID
                     throw new NullValueException("El value ingresado es null");
                 }
                 this.equipment = value;
+
+                if (this.equipment != value)
+                {
+                    throw new NotEqualException("La operación de asignación del Equipment del step ha fallado");
+                }
+
+                
             }
         }
     }
