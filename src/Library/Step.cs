@@ -27,6 +27,11 @@ namespace Full_GRASP_And_SOLID
             {
                 Console.WriteLine(exception.Message);
             }
+
+            catch (NotEqualException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
         }
 
         private Product input;
@@ -44,6 +49,11 @@ namespace Full_GRASP_And_SOLID
                 throw new NullValueException("El value ingresado es null");
                 }
                 this.input = value;
+
+                if (this.input != value)
+                {
+                    throw new NotEqualException("La operación de asignación del producto ha fallado");
+                }
             }
         }
 
@@ -109,6 +119,13 @@ namespace Full_GRASP_And_SOLID
                     throw new NullValueException("El value ingresado es null");
                 }
                 this.equipment = value;
+
+                if (this.equipment != value)
+                {
+                    throw new NotEqualException("La operación de asignación del Equipment del step ha fallado");
+                }
+
+                
             }
         }
     }

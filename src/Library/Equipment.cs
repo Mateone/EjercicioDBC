@@ -24,10 +24,14 @@ namespace Full_GRASP_And_SOLID
             {
                 Console.WriteLine(exce.Message);
             }
+            catch(NotEqualException exce)
+            {
+                Console.WriteLine(exce.Message);
+            }
         }
 
         private string description;
-        
+
         public string Description
         {
             get
