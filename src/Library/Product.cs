@@ -38,11 +38,14 @@ namespace Full_GRASP_And_SOLID
             }
             set
             {
+                //Precondicion
                 if(String.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
                 }
                 this.description = value;
+
+                  //Postcondicion 
 
                 if (this.description != value)
                 {
@@ -59,12 +62,14 @@ namespace Full_GRASP_And_SOLID
             }
             private set
             {
+                //Precondicion
                 if (value < 0)
                 {
                     throw new NegativeValueException("El valor introducido es menor a cero");
                 }
                 this.unitCost = value;
 
+                //Postcondicion 
                 if (this.unitCost != value)
                 {
                     throw new NotEqualException("La operación de asignación del unitCost del producto ha fallado");

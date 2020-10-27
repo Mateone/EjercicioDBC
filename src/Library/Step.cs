@@ -11,11 +11,6 @@ namespace Full_GRASP_And_SOLID
     {
         public Step(Product input, double quantity, Equipment equipment, int time)
         {
-            this.Quantity = quantity;
-            this.Input = input;
-            this.Time = time;
-            this.Equipment = equipment;
-
             try
             {
                 this.Quantity = quantity;
@@ -56,6 +51,7 @@ namespace Full_GRASP_And_SOLID
                 }
                 this.input = value;
 
+                //Postcondicion
                 if (this.input != value)
                 {
                     throw new NotEqualException("La operación de asignación del producto ha fallado");
@@ -78,6 +74,8 @@ namespace Full_GRASP_And_SOLID
                     throw new NegativeOrZeroException("La cantidad introducida es menor o igual a cero!");
                 }
                 this.quantity = value;
+
+                //Postcondicion 
             
                 if (this.quantity != value)
                 {
@@ -102,6 +100,8 @@ namespace Full_GRASP_And_SOLID
                     throw new NegativeOrZeroException("El tiempo introducido es menor o igual a cero!");
                 }
                 this.time = value;
+                
+                //Postcondicion 
 
                 if (this.time != value)
                 {
@@ -125,6 +125,8 @@ namespace Full_GRASP_And_SOLID
                     throw new NullValueException("El value ingresado es null");
                 }
                 this.equipment = value;
+
+                //Postcondicion 
 
                 if (this.equipment != value)
                 {
