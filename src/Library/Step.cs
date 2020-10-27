@@ -15,12 +15,14 @@ namespace Full_GRASP_And_SOLID
             this.Input = input;
             this.Time = time;
             this.Equipment = equipment;
-            this.Input = input;
 
             try
             {
                 this.Quantity = quantity;
                 this.Time = time;
+                this.Input = input;
+                this.Equipment = equipment;
+
             }
 
             catch (NegativeOrZeroException exception)
@@ -29,6 +31,10 @@ namespace Full_GRASP_And_SOLID
             }
 
             catch (NotEqualException exception)
+            {
+                Console.WriteLine(exception.Message);
+            }
+            catch (NullValueException exception)
             {
                 Console.WriteLine(exception.Message);
             }
