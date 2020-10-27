@@ -19,7 +19,7 @@ namespace Full_GRASP_And_SOLID
                 this.Quantity = quantity;
                 this.Time = time;
             }
-            
+
             catch (NegativeOrZeroException exception)
             {
                 Console.WriteLine(exception.Message);
@@ -42,6 +42,11 @@ namespace Full_GRASP_And_SOLID
                     throw new NegativeOrZeroException("La cantidad introducida es menor o igual a cero!");
                 }
                 this.quantity = value;
+            
+                if (this.quantity != value)
+                {
+                    throw new NotEqualException("La operación de asignación de la cantidad ha fallado");
+                }
             }
         }
 
@@ -60,6 +65,11 @@ namespace Full_GRASP_And_SOLID
                     throw new NegativeOrZeroException("El tiempo introducido es menor o igual a cero!");
                 }
                 this.time = value;
+
+                if (this.time != value)
+                {
+                    throw new NotEqualException("La operación de asignación del tiempo del step ha fallado");
+                }
             }
         }
 

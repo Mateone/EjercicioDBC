@@ -33,6 +33,11 @@ namespace Full_GRASP_And_SOLID
                 this.description = value;
 
                 //Poscondición: Description toma el valor que se intenta asignarle
+
+                if (this.description != value)
+                {
+                    throw new NotEqualException("La operación de asignación de descripción del Equipment ha fallado");
+                }
             }
         }
 
@@ -54,6 +59,11 @@ namespace Full_GRASP_And_SOLID
                 this.hourlyCost = value;
 
                 //Poscondición: HourlyCost toma el valor que se intenta asignarle
+
+                if (this.hourlyCost != value)
+                {
+                    throw new NotEqualException("La operación de asignación del hourlyCost ha fallado");
+                }
             }
         }
     }

@@ -15,7 +15,7 @@ namespace Full_GRASP_And_SOLID
             this.Description = description;
             this.UnitCost = unitCost;
         }
-         private string description;
+        private string description;
         public string Description 
         {
             get
@@ -29,6 +29,11 @@ namespace Full_GRASP_And_SOLID
                     throw new ArgumentNullOrEmptyException("El texto es null o se encuentra vacío");
                 }
                 this.description = value;
+
+                if (this.description != value)
+                {
+                    throw new NotEqualException("La operación de asignación ha fallado");
+                }
             }
         }
         public double unitCost;
